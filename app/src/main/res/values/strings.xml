@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">Flicks</string>
-    <string name="player_error">Error initializing YouTube player: %s</string>
-    <string name="seek_to">Jump To</string>
-    <string name="seek_to_hint">Seconds</string>
+    <string name="backdrop_image">Backdrop Image</string>
+    <string name="details">Details</string>
+    <string name="bt_details">details</string>
+    <string name="Rating" />
+    <string name="rating_details">Rating</string>
+    <string name="popularity_details" />
+    <string name="pop_details">Popularity</string>
+    <string name="back_details">back</string>
+    <string name="now_playing">NOW PLAYING</string>
+    <string name="popular_trending"><![CDATA[POPULAR & TRENDING]]></string>
+    <string name="font">fonts/Lato-Light.ttf</string>
+    <string name="font_test">Lato-Light.ttf</string>
+    <string name="trailer">trailer</string>
+    <string name="youtube_api_key">AIzaSyBLMe1BwYW1Vg222rtlyQOKyILc4NOLprU</string>
 </resources>
