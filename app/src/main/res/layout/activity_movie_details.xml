@@ -51,10 +51,29 @@
         android:text="@string/trailer"
         android:id="@+id/btVideo"
         android:onClick="onWatchVideo"
+        android:layout_marginTop="34dp"
         android:layout_below="@+id/tvOverview"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="127dp"
-        android:layout_marginStart="127dp"
-        android:layout_marginTop="34dp" />
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:id="@+id/pbPopularity"
+        android:indeterminate="false"
+        android:max="50"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/btVideo"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/back_details"
+        android:id="@+id/button"
+        android:onClick="onReturnMain"
+        android:layout_below="@+id/pbPopularity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="111dp" />
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +35,9 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
     @BindView(R.id.tvTitle) TextView tvTitle;
     @BindView(R.id.tvOverview)TextView tvOverview;
     @BindView(R.id.rbVoteAverage) RatingBar rbVoteAverage;
+    @BindView(R.id.pbPopularity) ProgressBar pbPopularity;
     int id;
+
     String videoKey="";
     AsyncHttpClient client;
     Button button;
@@ -54,6 +57,8 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
         // set the title and overview
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+        pbPopularity = (ProgressBar) findViewById(R.id.pbPopularity);
+        pbPopularity.setProgress(movie.getPopularity());
         button = (Button) findViewById(R.id.btVideo);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +71,11 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
         // vote average is 0..10, convert to 0..5 by dividing by 2
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
+
+
     }
+
+
 
     // handles when the back arrow is pressed to go back to home page
     public void onWatchVideo() {
@@ -103,5 +112,8 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
             }
         });
 
+    }
+    public void onReturnMain(View view) {
+        this.finish();
     }
 }

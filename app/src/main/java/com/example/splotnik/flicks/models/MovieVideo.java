@@ -2,6 +2,8 @@ package com.example.splotnik.flicks.models;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.splotnik.flicks.R;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -16,7 +18,8 @@ import com.loopj.android.http.AsyncHttpClient;
 
 public class MovieVideo extends YouTubeBaseActivity {
     AsyncHttpClient client;
-    String key;
+    String videoId;
+    Button backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class MovieVideo extends YouTubeBaseActivity {
         setContentView(R.layout.activity_movie_video);
 
         // temporary test video id -- TODO replace with movie trailer video id
-        final String videoId = "tKodtNFpzBA";
+        videoId= (String) getIntent().getStringExtra("YOUTUBE_ID");
 
         // resolve the player view from the layout
         YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.ytPlayer);
@@ -35,7 +38,7 @@ public class MovieVideo extends YouTubeBaseActivity {
             public void onInitializationSuccess(YouTubePlayer.Provider provider,
                                                 YouTubePlayer youTubePlayer, boolean b) {
                 // do any work here to cue video, play video, etc.
-                youTubePlayer.cueVideo(videoId);
+                youTubePlayer.loadVideo(videoId);
             }
 
             @Override
@@ -45,8 +48,12 @@ public class MovieVideo extends YouTubeBaseActivity {
                 Log.e("MovieVideo", "Error initializing YouTube player");
             }
         });
-    }
 
+
+    }
+    public void onReturnMain(View view) {
+        this.finish();
+    }
 
     }
 
